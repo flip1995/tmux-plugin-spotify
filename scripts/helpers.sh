@@ -26,7 +26,7 @@ command_exists() {
 
 print_current_property() {
   if is_linux; then
-    spotifycli "$1"
+    spotifycli "$@"
   else
     echo "tmux-plugin-spotify works only on Linux"
   fi

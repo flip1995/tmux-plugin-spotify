@@ -5,7 +5,7 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source "$CURRENT_DIR/helpers.sh"
 
 main() {
-  print_current_property --artistshort
+  print_current_property --artistshort $1
 }
 
-main
+main $1

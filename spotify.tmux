@@ -10,10 +10,10 @@ spotify_status_interpolation="\#{spotify_status}"
 spotify_status_full="#($CURRENT_DIR/scripts/spotify_status_full.sh)"
 spotify_status_full_interpolation="\#{spotify_status_full}"
 
-spotify_song="#($CURRENT_DIR/scripts/spotify_song.sh)"
+spotify_song="#($CURRENT_DIR/scripts/spotify_song.sh $(get_tmux_option @spotify_song_length 10))"
 spotify_song_interpolation="\#{spotify_song}"
 
-spotify_artist="#($CURRENT_DIR/scripts/spotify_artist.sh)"
+spotify_artist="#($CURRENT_DIR/scripts/spotify_artist.sh $(get_tmux_option @spotify_artist_length 15))"
 spotify_artist_interpolation="\#{spotify_artist}"
 
 spotify_album="#($CURRENT_DIR/scripts/spotify_album.sh)"
