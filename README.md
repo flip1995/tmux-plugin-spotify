@@ -1,3 +1,6 @@
+This fork bases on my fork of [`spotify-cli-linux`](https://github.com/flip1995/spotify-cli-linux).
+Sadly the PR for this got rejected: [pwittchen/tmux-plugin-spotify#2](https://github.com/pwittchen/tmux-plugin-spotify/pull/2#issuecomment-447658812)
+
 # tmux-plugin-spotify
 tmux plugin displaying currently played song on Spotify
 
@@ -31,17 +34,25 @@ If format strings are added to `status-right`, they should now be visible.
 Usage
 -----
 
-In order to see currently played Spotify song via this tmux plugin, add the following command to your `.tmux.conf` file:
+In order to see the current status of Spotify via this tmux plugin, add one or
+more of the following commands to your `.tmux.conf` file:
 
-```
-#{spotify_song}
+- `#{spotify_status_full}`: `Artist - Title`
+- `#{spotify_status}`: `Artist - Title` (Limits the artists name to 15 and the title to 10 characters)
+- `#{spotify_song}`: `Title` (Limits title to 10 characters by default)
+- `#{spotify_artist}`: `Artist` (Limits artist name to 15 characters by default)
+- `#{spotify_album}`: `Album`
+- `#{spotify_playback}`: The playback status (UTF-8)
+
+To modify the length of the song title and artist you can set the two options:
+
+```tmux
+set -g @spotify_song_length 10
+set -g @spotify_artist_length 15
 ```
 
-You can also set more options like:
-
-```
-#{spotify_status_full}, #{spotify_status}, #{spotify_song}, #{spotify_artist}, #{spotify_album}, #{spotify_playback}
-```
+_Note:_ These options only have an effect on the `#{spotify_song}` and
+`#{spotify_artist}` attributes, not on the `#{spotify_status}`.
 
 References
 ----------
